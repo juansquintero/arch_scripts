@@ -61,6 +61,7 @@ echo 'Chrooting into install'
 
 cp ~/arch_scripts/arch-chroot-config.sh /mnt/
 cp ~/arch_scripts/yay-install.bash /mnt/
+cp ~/arch_scripts/arch-post-install-gnome.sh /mnt/
 arch-chroot /mnt 
 
 
