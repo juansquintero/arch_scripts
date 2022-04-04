@@ -3,10 +3,14 @@
 
 # Btrfs definition and config
 
+echo 'Setting up partitions a making file systems'
+
 mkfs.fat -F 32 /dev/nvme0n1p1
 mkswap /dev/nvme0n1p2
 swapon /dev/nvme0n1p2
 mkfs.btrfs -f /dev/nvme0n1p3
+
+echo 'Setting up mount points'
 
 mount /dev/nvme0n1p3 /mnt
 btrfs su cr /mnt/@
@@ -17,6 +21,8 @@ btrfs su cr /mnt/@log
 btrfs su cr /mnt/@cache 
 btrfs su cr /mnt/@tmp
 btrfs su li /mnt
+
+echo 'Mounting optimized for btrfs'
 
 cd /
 umount /mnt
@@ -31,17 +37,30 @@ mount -o defaults,noatime,compress=zstd,commit=120,subvol=@log /dev/nvme0n1p3 /m
 mount -o defaults,noatime,compress=zstd,commit=120,subvol=@cache /dev/nvme0n1p3 /mnt/var/cache
 mount -o defaults,noatime,compress=zstd,commit=120,subvol=@tmp /dev/nvme0n1p3 /mnt/tmp
 
+echo 'Mounting boot partitions'
+
 mkdir -p /mnt/boot/efi
 mount /dev/nvme0n1p1 /mnt/boot/efi
+
+echo 'Setting up reflector and pacman parallel downloads'
 
 reflector --verbose --country Colombia --country 'United States' --protocol http --protocol https --sort rate --latest 10 --save /etc/pacman.d/mirrorlist
 
 sed -i "s/#ParallelDownloads\ =\ 5/ParallelDownloads\ =\ 5/" /etc/pacman.conf
+
+echo 'Installing packages with packstrap'
+
 pacstrap /mnt base base-devel linux linux-lts linux-firmware reflector neovim btrfs-progs zsh git networkmanager
+
+echo 'Generating fstab'
 
 genfstab -U /mnt >> /mnt/etc/fstab 
 cat /mnt/etc/fstab
 
+echo 'Chrooting into install'
+
 cp ~/arch_scripts/arch-chroot-config.sh /mnt/
-arch-chroot /mnt
+arch-chroot /mnt ./arch-chroot-config.sh chroot
+
+
 
