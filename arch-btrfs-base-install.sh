@@ -61,7 +61,7 @@ echo 'Chrooting into install'
 
 cp ~/arch_scripts/arch-chroot-config.sh /mnt/
 cp ~/arch_scripts/yay-install.bash /mnt/
-arch-chroot /mnt ./arch-chroot-config.sh chroot
+arch-chroot /mnt 
 
 
 
