@@ -43,4 +43,4 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 
 cp arch-chroot-config.sh /mnt/
-arch-chroot /mnt
+
