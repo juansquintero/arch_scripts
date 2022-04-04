@@ -13,18 +13,18 @@ date
 hwclock -w
 
 # Xorg install
-pacman -S xorg-server xorg-xinit xf86-video-amdgpu xf86-input-synaptics
+pacman -S --noconfirm xorg-server xorg-xinit xf86-video-amdgpu xf86-input-synaptics amd-ucode android-udev
 
 # Gnome install
-pacman -S gnome-shell nautilus gnome-terminal guake gnome-tweak-tool gnome-control-center xdg-user-dirs-gtk gdm gnome-keyring mutter cheese file-roller gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-menus gnome-screenshot gnome-session gnome-settings-daemon gnome-system-monitor
+pacman -S --noconfirm gnome-shell nautilus gnome-terminal guake gnome-tweak-tool gnome-control-center xdg-user-dirs-gtk gdm gnome-keyring mutter cheese file-roller gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-menus gnome-screenshot gnome-session gnome-settings-daemon gnome-system-monitor
 
 # Extra
-pacman -S chromium btop 
+pacman -S --noconfirm chromium btop 
 
 # yay install 
-pacman -S --needed git base-devel
-git clone https://aur.archlinux.org/yay.git /tmp/yay
-(cd /tmp/yay && makepkg -si)
+pacman -S --needed --noconfirm git base-devel
+chmod 777 /yay_install.bash
+sudo -u juansquintero /yay_install.bash
 
 # Enable gnome lockscreen
 systemctl enable gdm 
