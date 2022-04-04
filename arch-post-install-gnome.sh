@@ -27,6 +27,7 @@ chmod 777 /yay-install.bash
 sudo -u juansquintero /yay-install.bash
 rm -rf /home/juansquintero/yay
 
+sudo -u juasnquintero sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo -u juansquintero yay -S pfetch-git
 
 
