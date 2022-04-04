@@ -41,4 +41,5 @@ pacstrap /mnt base base-devel linux linux-lts linux-firmware reflector neovim bt
 genfstab -U /mnt >> /mnt/etc/fstab 
 cat /mnt/etc/fstab
 
-
+cp arch-chroot-config.sh /mnt/
+arch-chroot /mnt
