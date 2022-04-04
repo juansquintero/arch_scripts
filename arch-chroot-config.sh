@@ -25,7 +25,7 @@ passwd
 reflector --verbose --country Colombia --country 'United States' --protocol https --protocol http --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 sed -i "s/#ParallelDownloads\ =\ 5/ParallelDownloads\ =\ 5/" /etc/pacman.conf
-pacman -Sy grub efibootmgr -y
+pacman -Sy --noconfirm grub efibootmgr -y
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
