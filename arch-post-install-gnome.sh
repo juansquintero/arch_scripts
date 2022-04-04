@@ -3,7 +3,7 @@
 useradd -m -g users -G audio,video,network,wheel,storage,rfkill -s /bin/zsh juansquintero
 passwd juansquintero
 sed -i "s/#\ %wheel\ ALL=(ALL:ALL)\ ALL/%wheel\ ALL=(ALL:ALL)\ ALL/ " /etc/sudoers
-pacman -S acpid ntp dbus cronie 
+pacman -S --noconfirm acpid ntp dbus cronie 
 
 systemctl enable acpid
 systemctl enable ntpd
@@ -13,10 +13,10 @@ date
 hwclock -w
 
 # Xorg install
-pacman -S --noconfirm xorg-server xorg-xinit xf86-video-amdgpu xf86-input-synaptics amd-ucode android-udev pipewire-pulse wireplumber ttf-droid noto-fonts ttf-jetbrains-mono adobe-source-code-pro-fonts
+pacman -S --noconfirm xorg-server xorg-xinit xf86-video-amdgpu xf86-input-synaptics amd-ucode android-udev pipewire-pulse wireplumber ttf-droid noto-fonts ttf-jetbrains-mono adobe-source-code-pro-fonts alacarte
 
 # Gnome install
-pacman -S --noconfirm gnome-shell nautilus gnome-terminal guake gnome-tweak-tool gnome-control-center xdg-user-dirs-gtk gdm gnome-keyring mutter cheese file-roller gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-menus gnome-screenshot gnome-session gnome-settings-daemon gnome-system-monitor
+pacman -S --noconfirm gnome-shell nautilus gnome-terminal guake gnome-tweak-tool gnome-control-center xdg-user-dirs-gtk gdm gnome-keyring mutter cheese file-roller gedit gnome-calculator gnome-calendar gnome-clocks gnome-control-center gnome-disk-utility gnome-menus gnome-screenshot gnome-session gnome-settings-daemon gnome-system-monitor gnome-themes-extra
 
 # Extra
 pacman -S --noconfirm chromium btop 
@@ -27,6 +27,7 @@ chmod 777 /yay-install.bash
 sudo -u juansquintero /yay-install.bash
 rm -rf /home/juansquintero/yay
 
+sudo -u juansquintero yay -S pfetch-git
 
 
 # Enable gnome lockscreen
