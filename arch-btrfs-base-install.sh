@@ -36,7 +36,7 @@ mount /dev/nvme0n1p1 /mnt/boot/efi
 
 reflector --verbose --country Colombia --country 'United States' --protocol http --protocol https --sort rate --latest 10 --save /etc/pacman.d/mirrorlist
 
-pacstrap /mnt base base-devel linux linux-lts linux-firmware reflector neovim btrfs-progs zsh 
+pacstrap /mnt base base-devel linux linux-lts linux-firmware reflector neovim btrfs-progs zsh git
 
 genfstab -U /mnt >> /mnt/etc/fstab 
 cat /mnt/etc/fstab
