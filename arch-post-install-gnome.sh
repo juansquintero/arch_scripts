@@ -28,7 +28,8 @@ sudo -u juansquintero /yay-install.bash
 rm -rf /home/juansquintero/yay
 
 sudo -u juasnquintero sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-sudo -u juansquintero yay -S pfetch-git
+sudo -u juansquintero yay -S pfetch-git --noconfirm
+sudo -u juansquintero yay -S nerd-fonts-jetbrains-mono --noconfirm 
 
 
 # Enable gnome lockscreen
