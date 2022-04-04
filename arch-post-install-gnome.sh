@@ -25,6 +25,9 @@ pacman -S --noconfirm chromium btop
 pacman -S --needed --noconfirm git base-devel
 chmod 777 /yay-install.bash
 sudo -u juansquintero /yay-install.bash
+rm -rf /home/juansquintero/yay
 
 # Enable gnome lockscreen
 systemctl enable gdm 
+
+reboot
