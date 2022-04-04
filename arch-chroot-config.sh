@@ -2,7 +2,7 @@
 
 chsh -s /bin/zsh
 
-ls -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
+ln -sf /usr/share/zoneinfo/America/Bogota /etc/localtime
 
 sed -i "s/#en_US.UTF-8\ UTF-8/en_US.UTF-8\ UTF-8/" /etc/locale.gen
 sed -i "s/#en_US\ ISO-8859-1/en_US\ ISO-8859-1/" /etc/locale.gen
@@ -25,7 +25,7 @@ passwd
 reflector --verbose --country Colombia --country 'United States' --protocol https --protocol http --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 
 sed -i "s/#ParallelDownloads\ =\ 5/ParallelDownloads\ =\ 5/" /etc/pacman.conf
-pacman -Sy grub efibootmgr
+pacman -Sy grub efibootmgr -y
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
