@@ -59,9 +59,10 @@ cat /mnt/etc/fstab
 
 echo 'Chrooting into install'
 
-cp ~/arch_scripts/arch-chroot-config.sh /mnt/
-cp ~/arch_scripts/yay-install.bash /mnt/
-cp ~/arch_scripts/arch-post-install-gnome.sh /mnt/
+cp ~/arch_scripts/arch-chroot-config.sh /mnt/root
+cp ~/arch_scripts/yay-install.bash /mnt/root
+cp ~/arch_scripts/arch-post-install-gnome.sh /mnt/root
+cp ~/arch_scripts/arch-bspwm-install.sh /mnt/root
 arch-chroot /mnt 
 
 
