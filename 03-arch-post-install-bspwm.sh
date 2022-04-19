@@ -25,7 +25,7 @@ pacman -S --noconfirm chromium btop
 # yay install 
 pacman -S --needed --noconfirm git base-devel
 chmod 777 /yay-install.bash
-sudo -u juansquintero /yay-install.bash
+sudo -u juansquintero ./yay-install.bash
 rm -rf /home/juansquintero/yay
 
 sudo -u juasnquintero sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

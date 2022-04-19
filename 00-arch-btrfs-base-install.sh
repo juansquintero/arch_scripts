@@ -73,10 +73,10 @@ cat /mnt/etc/fstab
 
 echo 'Chrooting into install'
 
-cp ~/arch_scripts/arch-chroot-config.sh /mnt/root
+cp ~/arch_scripts/01-arch-chroot-config.sh /mnt/root
 cp ~/arch_scripts/yay-install.bash /mnt/root
-cp ~/arch_scripts/arch-post-install-gnome.sh /mnt/root
-cp ~/arch_scripts/arch-bspwm-install.sh /mnt/root
+cp ~/arch_scripts/02-arch-post-install-gnome.sh /mnt/root
+cp ~/arch_scripts/03-arch-bspwm-install.sh /mnt/root
 cp ~/arch_scripts/alacritty.yml /mnt/root
 cp ~/arch_scripts/.zshrc /mnt/root
 cp ~/arch_scripts/touchegg.conf /mnt/root
