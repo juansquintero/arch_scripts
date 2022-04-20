@@ -30,7 +30,7 @@ sudo -u juansquintero sudo mv /root/.zshrc /home/juansquintero/
 
 # yay install 
 pacman -S --needed --noconfirm git base-devel
-chmod 777 /yay-install.bash
+chmod 777 yay-install.bash
 sudo -u juansquintero sh ./yay-install.bash
 rm -rf /home/juansquintero/yay
 
