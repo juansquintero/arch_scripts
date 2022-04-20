@@ -48,23 +48,10 @@ reflector --verbose --country Colombia --country 'United States' --protocol http
 
 sed -i "s/#ParallelDownloads\ =\ 5/ParallelDownloads\ =\ 5/" /etc/pacman.conf
 
-# Setup kernel select 
-kernel_select() {
-    kernel_list=(linux-lts linux)
-    echo 'Seleccione el kernel'
-    select kernel in "${kernel_list[@]}"; do
-        if contains_element "${kernel}" "${kernel_list[@]}";then
-            break
-        else
-            invalid_option
-        fi
-    done
-    kernel_install = $kernel
-}
 
 echo 'Installing packages with packstrap'
 
-pacstrap /mnt base base-devel $kernel_install linux-firmware reflector neovim btrfs-progs zsh git networkmanager
+pacstrap /mnt base base-devel linux linux-lts linux-firmware reflector neovim btrfs-progs zsh git networkmanager
 
 echo 'Generating fstab'
 
