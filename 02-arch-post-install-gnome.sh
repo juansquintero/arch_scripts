@@ -51,6 +51,7 @@ sudo -u juansquintero $ mkdir -p ~/.config/touchegg && cp -n /root/touchegg.conf
 
 
 # flatpak install 
+pacman -S flatpak --noconfirm
 
 sudo -u juansquintero flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo -u juansquintero flatpak install -y flathub org.gnome.TextEditor
